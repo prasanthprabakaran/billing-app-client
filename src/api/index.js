@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // const API = axios.create({ baseURL: 'http://localhost:4000'})
-const API = axios.create({ baseURL: 'https://billing-app1.netlify.app' });
+const API = axios.create({ baseURL: 'https://billing-app-dppl.onrender.com' });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('profile')) {
