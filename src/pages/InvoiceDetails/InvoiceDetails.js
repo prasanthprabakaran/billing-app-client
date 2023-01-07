@@ -95,7 +95,7 @@ const InvoiceDetails = () => {
 
   const createPdf = async () => {
     try {
-      await axios.post(`${process.env.REACT_APP_API}/create-pdf`, {
+      await axios.post(`https://billing-app-dppl.onrender.com/create-pdf`, {
         name: invoice.client.name,
         address: invoice.client.address,
         phone: invoice.client.phone,
@@ -122,7 +122,7 @@ const InvoiceDetails = () => {
   const downloadPdf = async () => {
     setDownloadStatus('loading');
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API}/fetch-pdf`, {
+      const res = await axios.get(`https://billing-app-dppl.onrender.com/fetch-pdf`, {
         responseType: 'blob',
       });
       const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
@@ -145,7 +145,7 @@ const InvoiceDetails = () => {
     e.preventDefault();
     setSendStatus('loading');
     try {
-      await axios.post(`${process.env.REACT_APP_API}/send-pdf`, {
+      await axios.post(`https://billing-app-dppl.onrender.com/send-pdf`, {
         name: invoice.client.name,
         address: invoice.client.address,
         phone: invoice.client.phone,
@@ -162,7 +162,7 @@ const InvoiceDetails = () => {
         status: invoice.status,
         totalAmountReceived: toCommas(totalAmountReceived),
         balanceDue: toCommas(total - totalAmountReceived),
-        link: `${process.env.REACT_APP_URL}/invoice/${invoice._id}`,
+        link: `https://billing-app1.netlify.app/invoice/${invoice._id}`,
         company: company,
       });
       setSendStatus('success');

@@ -76,7 +76,7 @@ const Invoice = () => {
   const getTotalCount = async () => {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_API}/invoices/count?searchQuery=${
+        `https://billing-app-dppl.onrender.com/invoices/count?searchQuery=${
           user?.result?._id || user?.result?.sub
         }`
       );
